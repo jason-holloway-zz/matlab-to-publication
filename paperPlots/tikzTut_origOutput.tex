@@ -1,0 +1,63 @@
+% This file was created by matlab2tikz.
+%
+%The latest updates can be retrieved from
+%  http://www.mathworks.com/matlabcentral/fileexchange/22022-matlab2tikz-matlab2tikz
+%where you can also make suggestions and rate matlab2tikz.
+%
+\documentclass[tikz]{standalone}
+\usepackage[T1]{fontenc} % <- not necessary, delete
+\usepackage[utf8]{inputenc} % <- not necessary, delete
+\usepackage{pgfplots}
+\usepackage{grffile} % <- not necessary, delete
+\pgfplotsset{compat=newest}
+\usetikzlibrary{plotmarks}
+\usetikzlibrary{arrows.meta} % <- not necessary, delete
+\usepgfplotslibrary{patchplots}
+\usepackage{amsmath}
+
+\begin{document}
+\definecolor{mycolor1}{rgb}{0.20784,0.42353,0.72941}%
+\definecolor{mycolor2}{rgb}{0.49020,0.16078,0.54902}%
+%
+\begin{tikzpicture}
+
+\begin{axis}[%
+width=2.636in, % <- not exactly correct, resize
+height=1.865in, % <- not exactly correct, resize
+at={(0.531in,0.396in)}, % <- not necessary, delete
+scale only axis,
+every outer x axis line/.append style={black}, % <- not necessary, delete
+every x tick label/.append style={font=\color{black}}, % <- not necessary, delete
+every x tick/.append style={black}, % <- not necessary, delete
+xmin=0,
+xmax=2570,
+xtick={349,714,1080,1445,1810,2175,2541},
+xticklabels={{2011},{2012},{2013},{2014},{2015},{2016},{2017}},
+xlabel={Date},
+every outer y axis line/.append style={black}, % <- not necessary, delete
+every y tick label/.append style={font=\color{black}}, % <- not necessary, delete
+every y tick/.append style={black}, % <- not necessary, delete
+ymin=0,
+ymax=800,
+ylabel={Number of messages per day},
+axis background/.style={fill=white}, % <- not necessary, delete
+title={Daily usage (7 day running average)},
+axis x line*=bottom,
+axis y line*=left,
+legend style={legend cell align=left, align=left, draw=black}
+]
+\addplot [color=black]
+  table[]{tikzTut-1.tsv};
+\addlegendentry{Combined}
+
+\addplot [color=mycolor1, dotted]
+  table[]{tikzTut-2.tsv};
+\addlegendentry{User 1}
+
+\addplot [color=mycolor2, dashdotted]
+  table[]{tikzTut-3.tsv};
+\addlegendentry{User 2}
+
+\end{axis}
+\end{tikzpicture}%
+\end{document}
